@@ -13,7 +13,6 @@ import SelectionAPI from './api/selection';
 import ToolsAPI from './api/tools';
 import StylesAPI from './api/styles';
 import ToolbarAPI from './api/toolbar';
-import TooltipAPI from './api/tooltip';
 import UiAPI from './api/ui';
 
 /** ./toolbar */
@@ -53,7 +52,6 @@ export default {
   ToolsAPI,
   StylesAPI,
   ToolbarAPI,
-  TooltipAPI,
   UiAPI,
 
   // Toolbar Modules

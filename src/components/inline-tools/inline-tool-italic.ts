@@ -17,7 +17,7 @@ export default class ItalicInlineTool implements InlineTool {
   public static isInline = true;
 
   /**
-   * Title for hover-tooltip
+   * Title
    */
   public static title = 'Italic';
 
