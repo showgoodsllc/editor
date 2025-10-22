@@ -20,7 +20,7 @@ export default class LinkInlineTool implements InlineTool {
   public static isInline = true;
 
   /**
-   * Title
+   * Title for hover-tooltip
    */
   public static title = 'Link';
 

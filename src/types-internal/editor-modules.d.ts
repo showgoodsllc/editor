@@ -12,6 +12,7 @@ import SaverAPI from '../components/modules/api/saver';
 import SelectionAPI from '../components/modules/api/selection';
 import StylesAPI from '../components/modules/api/styles';
 import ToolbarAPI from '../components/modules/api/toolbar';
+import TooltipAPI from '../components/modules/api/tooltip';
 import UiAPI from '../components/modules/api/ui';
 
 /** ./toolbar */
@@ -52,6 +53,7 @@ export interface EditorModules {
   SelectionAPI: SelectionAPI,
   StylesAPI: StylesAPI,
   ToolbarAPI: ToolbarAPI,
+  TooltipAPI: TooltipAPI,
   UiAPI: UiAPI,
 
   // Toolbar Modules

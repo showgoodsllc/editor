@@ -18,7 +18,7 @@ export default class BoldInlineTool implements InlineTool {
   public static isInline = true;
 
   /**
-   * Title
+   * Title for hover-tooltip
    */
   public static title = 'Bold';
 

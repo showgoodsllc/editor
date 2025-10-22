@@ -3,6 +3,7 @@ import $, { calculateBaseline } from '../../dom';
 import * as _ from '../../utils';
 import I18n from '../../i18n';
 import { I18nInternalNS } from '../../i18n/namespace-internal';
+import * as tooltip from '../../utils/tooltip';
 import type { ModuleConfig } from '../../../types-internal/module-config';
 import type Block from '../../block';
 import Toolbox, { ToolboxEvent } from '../../ui/toolbox';
@@ -438,8 +439,23 @@ export default class Toolbar extends Module<ToolbarNodes> {
     $.append(this.nodes.actions, this.nodes.plusButton);
 
     this.readOnlyMutableListeners.on(this.nodes.plusButton, 'click', () => {
+      tooltip.hide(true);
       this.plusButtonClicked();
     }, false);
+
+    /**
+     * Add events to show/hide tooltip for plus button
+     */
+    const tooltipContent = $.make('div');
+
+    tooltipContent.appendChild(document.createTextNode(I18n.ui(I18nInternalNS.ui.toolbar.toolbox, 'Add')));
+    tooltipContent.appendChild($.make('div', this.CSS.plusButtonShortcut, {
+      textContent: '/',
+    }));
+
+    tooltip.onHover(this.nodes.plusButton, tooltipContent, {
+      hidingDelay: 400,
+    });
 
     /**
      * Fill Actions Zone:
@@ -452,6 +468,19 @@ export default class Toolbar extends Module<ToolbarNodes> {
     });
 
     $.append(this.nodes.actions, this.nodes.settingsToggler);
+
+    const blockTunesTooltip = $.make('div');
+    const blockTunesTooltipEl = $.text(I18n.ui(I18nInternalNS.ui.blockTunes.toggler, 'Click to tune'));
+    const slashRealKey = await getKeyboardKeyForCode('Slash', '/');
+
+    blockTunesTooltip.appendChild(blockTunesTooltipEl);
+    blockTunesTooltip.appendChild($.make('div', this.CSS.plusButtonShortcut, {
+      textContent: beautifyShortcut(`CMD + ${slashRealKey}`),
+    }));
+
+    tooltip.onHover(this.nodes.settingsToggler, blockTunesTooltip, {
+      hidingDelay: 400,
+    });
 
     /**
      * Appending Toolbar components to itself
@@ -545,6 +574,8 @@ export default class Toolbar extends Module<ToolbarNodes> {
       if (this.toolboxInstance?.opened) {
         this.toolboxInstance.close();
       }
+
+      tooltip.hide(true);
     }, true);
 
     /**

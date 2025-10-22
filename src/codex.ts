@@ -10,6 +10,7 @@ import '@babel/register';
 import './components/polyfills';
 import Core from './components/core';
 import * as _ from './components/utils';
+import { destroy as destroyTooltip } from './components/utils/tooltip';
 
 declare const VERSION: string;
 
@@ -89,6 +90,8 @@ export default class EditorJS {
           }
           moduleInstance.listeners.removeAll();
         });
+
+      destroyTooltip();
 
       editor = null;
 
