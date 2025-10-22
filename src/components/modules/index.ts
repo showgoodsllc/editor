@@ -6,7 +6,6 @@ import I18nAPI from './api/i18n';
 import API from './api/index';
 import InlineToolbarAPI from './api/inlineToolbar';
 import ListenersAPI from './api/listeners';
-import NotifierAPI from './api/notifier';
 import ReadOnlyAPI from './api/readonly';
 import SanitizerAPI from './api/sanitizer';
 import SaverAPI from './api/saver';
@@ -47,7 +46,6 @@ export default {
   API,
   InlineToolbarAPI,
   ListenersAPI,
-  NotifierAPI,
   ReadOnlyAPI,
   SanitizerAPI,
   SaverAPI,

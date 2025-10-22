@@ -1,7 +1,7 @@
 import SelectionUtils from '../selection';
 import * as _ from '../utils';
 import type { InlineTool, SanitizerConfig, API } from '../../../types';
-import type { Notifier, Toolbar, I18n, InlineToolbar } from '../../../types/api';
+import type { Toolbar, I18n, InlineToolbar } from '../../../types/api';
 import { IconLink, IconUnlink } from '@codexteam/icons';
 
 /**
@@ -95,11 +95,6 @@ export default class LinkInlineTool implements InlineTool {
   private inlineToolbar: InlineToolbar;
 
   /**
-   * Notifier API methods
-   */
-  private notifier: Notifier;
-
-  /**
    * I18n API
    */
   private i18n: I18n;
@@ -110,7 +105,6 @@ export default class LinkInlineTool implements InlineTool {
   constructor({ api }: { api: API }) {
     this.toolbar = api.toolbar;
     this.inlineToolbar = api.inlineToolbar;
-    this.notifier = api.notifier;
     this.i18n = api.i18n;
     this.selection = new SelectionUtils();
   }
@@ -296,11 +290,6 @@ export default class LinkInlineTool implements InlineTool {
     }
 
     if (!this.validateURL(value)) {
-      this.notifier.show({
-        message: 'Pasted link is not valid.',
-        style: 'error',
-      });
-
       _.log('Incorrect Link pasted', 'warn', value);
 
       return;

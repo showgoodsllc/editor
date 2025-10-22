@@ -6,7 +6,6 @@ import I18nAPI from '../components/modules/api/i18n';
 import API from '../components/modules/api/index';
 import InlineToolbarAPI from '../components/modules/api/inlineToolbar';
 import ListenersAPI from '../components/modules/api/listeners';
-import NotifierAPI from '../components/modules/api/notifier';
 import ReadOnlyAPI from '../components/modules/api/readonly';
 import SanitizerAPI from '../components/modules/api/sanitizer';
 import SaverAPI from '../components/modules/api/saver';
@@ -48,7 +47,6 @@ export interface EditorModules {
   API: API,
   InlineToolbarAPI: InlineToolbarAPI,
   ListenersAPI: ListenersAPI,
-  NotifierAPI: NotifierAPI,
   ReadOnlyAPI: ReadOnlyAPI,
   SanitizerAPI: SanitizerAPI,
   SaverAPI: SaverAPI,
